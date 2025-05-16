@@ -1,0 +1,45 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using CiberAgentes.Models
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    var user = await UserManager.GetUserAsync(User);
+}
+
+<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li class="nav-item">
+            <span class="nav-link">
+                <i class="fas fa-star"></i> <span class="badge badge-score">@(user?.Score ?? 0) pts</span>
+            </span>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="manage" asp-area="Identity" asp-page="/Account/Manage/Index" title="Administrar">
+                <i class="fas fa-user-circle"></i> @User.Identity?.Name
+            </a>
+        </li>
+        <li class="nav-item">
+            <form id="logoutForm" class="form-inline" asp-controller="Account" asp-action="Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button id="logout" type="submit" class="nav-link btn btn-link text-light border-0">
+                    <i class="fas fa-sign-out-alt"></i> Salir
+                </button>
+            </form>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link" id="register" asp-controller="Account" asp-action="Index">
+                <i class="fas fa-user-plus"></i> Registrarse
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="login" asp-controller="Account" asp-action="Index">
+                <i class="fas fa-sign-in-alt"></i> Iniciar sesión
+            </a>
+        </li>
+    }
+</ul>

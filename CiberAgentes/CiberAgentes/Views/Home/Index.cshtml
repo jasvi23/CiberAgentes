@@ -1,8 +1,106 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Inicio";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center mb-4">
+    <h1 class="display-4" style="color: var(--cybersecurity-blue);">¡Bienvenido a CiberAgentes!</h1>
+    <p class="lead">Tu misión: convertirte en maestro de la seguridad en contraseñas</p>
+</div>
+
+@if (!User.Identity.IsAuthenticated)
+{
+    <div class="alert alert-info">
+        <i class="fas fa-info-circle"></i> Para acceder a todas las funciones, <a asp-controller="Account" asp-action="Index">inicia sesión o regístrate</a>.
+        También puedes probar algunas funciones como invitado.
+    </div>
+}
+
+<div class="row">
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 mission-card">
+            <div class="card-header">
+                <h5><i class="fas fa-key"></i> Generador de Contraseñas</h5>
+            </div>
+            <div class="card-body d-flex flex-column">
+                <p>Crea contraseñas super seguras y evalúa qué tan seguras son las que ya tienes.</p>
+                <p class="mb-4">¡Desbloquea recompensas a medida que creas contraseñas más seguras!</p>
+                <a asp-controller="PasswordGenerator" asp-action="Index" class="btn btn-neon mt-auto">
+                    <i class="fas fa-shield-alt"></i> Generar contraseñas
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 mission-card">
+            <div class="card-header">
+                <h5><i class="fas fa-vault"></i> Bóveda Secreta</h5>
+            </div>
+            <div class="card-body d-flex flex-column">
+                <p>Almacena tus contraseñas en "cápsulas de memoria" cifradas.</p>
+                <p class="mb-4">Un lugar seguro para guardar todas tus claves de acceso.</p>
+                <a asp-controller="PasswordManager" asp-action="Index" class="btn btn-neon mt-auto">
+                    <i class="fas fa-lock"></i> Acceder a la bóveda
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 mission-card">
+            <div class="card-header">
+                <h5><i class="fas fa-graduation-cap"></i> Misiones</h5>
+            </div>
+            <div class="card-body d-flex flex-column">
+                <p>Completa desafíos educativos sobre ciberseguridad.</p>
+                <p class="mb-4">Aprende sobre los riesgos y las mejores prácticas mientras te diviertes.</p>
+                <a asp-controller="Missions" asp-action="Index" class="btn btn-neon mt-auto">
+                    <i class="fas fa-tasks"></i> Ver misiones
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-chart-line"></i> Tu Progreso</h5>
+            </div>
+            <div class="card-body">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6><i class="fas fa-medal"></i> Logros</h6>
+                            <p>Sigue tu progreso y desbloquea nuevos logros.</p>
+                            <a asp-controller="Achievements" asp-action="Index" class="btn btn-sm btn-neon">
+                                Ver mis logros
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <h6><i class="fas fa-trophy"></i> Tablero de Honor</h6>
+                            <p>Compite por el primer lugar en el ranking de ciberseguridad.</p>
+                            <a href="#" class="btn btn-sm btn-neon">
+                                Ver ranking
+                            </a>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <p class="text-center mb-0">Inicia sesión para ver tu progreso y acceder a todas las funciones.</p>
+                    <div class="text-center mt-3">
+                        <a asp-controller="Account" asp-action="Index" class="btn btn-neon">
+                            <i class="fas fa-sign-in-alt"></i> Iniciar sesión
+                        </a>
+                        <a asp-controller="Account" asp-action="GuestDemo" class="btn btn-outline-light ms-2">
+                            <i class="fas fa-user-secret"></i> Acceder como invitado
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
 </div>

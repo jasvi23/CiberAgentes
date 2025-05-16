@@ -1,0 +1,212 @@
+﻿@model CiberAgentes.ViewModels.Achievement.AchievementListViewModel
+@{
+    ViewData["Title"] = "Logros";
+}
+
+<div class="row mb-4">
+    <div class="col-md-8">
+        <h2><i class="fas fa-medal"></i> Logros y Recompensas</h2>
+        <p class="lead">Desbloquea logros completando misiones y creando contraseñas seguras.</p>
+    </div>
+    <div class="col-md-4 text-md-end align-self-center">
+        <div class="user-score">
+            <i class="fas fa-star"></i> <span>@Model.TotalScore</span> puntos
+        </div>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-lg-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-chart-pie"></i> Tu Progreso</h5>
+            </div>
+            <div class="card-body">
+                <div class="text-center mb-4">
+                    <div class="display-4">@Model.UnlockPercentage%</div>
+                    <p>completado</p>
+                    <div class="progress mb-3">
+                        <div class="progress-bar bg-success" role="progressbar"
+                             style="width: @Model.UnlockPercentage%;"
+                             aria-valuenow="@Model.UnlockPercentage"
+                             aria-valuemin="0"
+                             aria-valuemax="100">
+                        </div>
+                    </div>
+                    <div class="text-muted">
+                        <strong>@Model.UnlockedAchievements</strong> de <strong>@Model.TotalAchievements</strong> logros desbloqueados
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <h6 class="mb-3">Progreso por categoría</h6>
+
+                    <div class="mb-2">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span>Contraseñas</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="progress" style="height: 5px;">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span>Misiones</span>
+                            <span>40%</span>
+                        </div>
+                        <div class="progress" style="height: 5px;">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="d-flex justify-content-between mb-1">
+                            <span>Puntuación</span>
+                            <span>25%</span>
+                        </div>
+                        <div class="progress" style="height: 5px;">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h6 class="mb-3">Próximos logros</h6>
+
+                    @if (Model.NextAchievements.Any())
+                    {
+                        <ul class="list-group">
+                            @foreach (var achievement in Model.NextAchievements)
+                            {
+                                <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
+                                    <span>@achievement.Title</span>
+                                    <span class="badge bg-primary rounded-pill">@achievement.RewardPoints pts</span>
+                                </li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <div class="alert alert-success">
+                            <i class="fas fa-trophy"></i> ¡Has desbloqueado todos los logros disponibles!
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0"><i class="fas fa-trophy"></i> Todos los Logros</h5>
+                    <div class="btn-group" role="group">
+                        <input type="radio" class="btn-check" name="achievementFilter" id="all" checked>
+                        <label class="btn btn-outline-secondary btn-sm" for="all">Todos</label>
+
+                        <input type="radio" class="btn-check" name="achievementFilter" id="unlocked">
+                        <label class="btn btn-outline-success btn-sm" for="unlocked">Desbloqueados</label>
+
+                        <input type="radio" class="btn-check" name="achievementFilter" id="locked">
+                        <label class="btn btn-outline-secondary btn-sm" for="locked">Por desbloquear</label>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row" id="achievements-container">
+                    @foreach (var achievement in Model.Achievements)
+                    {
+                        <div class="col-md-6 mb-3 achievement-item"
+                             data-status="@(achievement.IsUnlocked ? "unlocked" : "locked")">
+                            <div class="achievement @achievement.GetStatusClass() p-3 h-100">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <h5 class="mb-0">@achievement.Title</h5>
+                                    @if (achievement.IsUnlocked)
+                                    {
+                                        <span class="badge bg-success">
+                                            <i class="fas fa-check-circle"></i>
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-secondary">
+                                            <i class="fas fa-lock"></i>
+                                        </span>
+                                    }
+                                </div>
+
+                                <p>@achievement.Description</p>
+
+                                <div class="d-flex justify-content-between align-items-end">
+                                    <span class="badge bg-primary">
+                                        <i class="fas fa-star"></i> @achievement.RewardPoints pts
+                                    </span>
+
+                                    @if (achievement.IsUnlocked && achievement.UnlockedAt.HasValue)
+                                    {
+                                        <small class="text-muted">
+                                            Desbloqueado: @achievement.UnlockedAt.Value.ToString("dd/MM/yyyy")
+                                        </small>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        @if (Model.RecentAchievements.Any())
+        {
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="fas fa-bolt"></i> Logros Recientes</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        @foreach (var achievement in Model.RecentAchievements)
+                        {
+                            <div class="col-md-4 mb-3">
+                                <div class="card h-100 bg-success bg-opacity-10 border-success">
+                                    <div class="card-body text-center">
+                                        <div class="mb-2">
+                                            <i class="fas fa-trophy fa-2x text-warning"></i>
+                                        </div>
+                                        <h6>@achievement.Title</h6>
+                                        <div class="badge bg-success">+@achievement.RewardPoints pts</div>
+                                    </div>
+                                    <div class="card-footer text-center bg-transparent">
+                                        <small>
+                                            @achievement.UnlockedAt?.ToString("dd/MM/yyyy HH:mm")
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Filtrar logros
+            $('input[name="achievementFilter"]').on('change', function() {
+                var filter = $(this).attr('id');
+
+                if (filter === 'all') {
+                    $('.achievement-item').show();
+                } else {
+                    $('.achievement-item').hide();
+                    $('.achievement-item[data-status="' + filter + '"]').show();
+                }
+            });
+        });
+    </script>
+}

@@ -1,0 +1,194 @@
+﻿@model IEnumerable<CiberAgentes.ViewModels.Mission.MissionViewModel>
+@{
+    ViewData["Title"] = "Misiones";
+}
+
+<div class="row mb-4">
+    <div class="col">
+        <h2><i class="fas fa-tasks"></i> Misiones de Ciberseguridad</h2>
+        <p class="lead">Completa misiones para aprender sobre seguridad y desbloquear logros.</p>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-filter"></i> Filtrar Misiones</h5>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label class="form-label">Dificultad</label>
+                    <div class="btn-group w-100" role="group">
+                        <input type="radio" class="btn-check" name="difficultyFilter" id="difficultyAll" checked>
+                        <label class="btn btn-outline-secondary" for="difficultyAll">Todas</label>
+
+                        <input type="radio" class="btn-check" name="difficultyFilter" id="difficultyEasy" value="Fácil">
+                        <label class="btn btn-outline-success" for="difficultyEasy">Fácil</label>
+
+                        <input type="radio" class="btn-check" name="difficultyFilter" id="difficultyMedium" value="Medio">
+                        <label class="btn btn-outline-warning" for="difficultyMedium">Medio</label>
+
+                        <input type="radio" class="btn-check" name="difficultyFilter" id="difficultyHard" value="Difícil">
+                        <label class="btn btn-outline-danger" for="difficultyHard">Difícil</label>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Tipo</label>
+                    <div class="btn-group w-100" role="group">
+                        <input type="radio" class="btn-check" name="typeFilter" id="typeAll" checked>
+                        <label class="btn btn-outline-secondary" for="typeAll">Todos</label>
+
+                        <input type="radio" class="btn-check" name="typeFilter" id="typeQuiz" value="Quiz">
+                        <label class="btn btn-outline-info" for="typeQuiz">Quiz</label>
+
+                        <input type="radio" class="btn-check" name="typeFilter" id="typeChallenge" value="Desafío">
+                        <label class="btn btn-outline-primary" for="typeChallenge">Desafío</label>
+
+                        <input type="radio" class="btn-check" name="typeFilter" id="typeTutorial" value="Tutorial">
+                        <label class="btn btn-outline-success" for="typeTutorial">Tutorial</label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="form-label">Estado</label>
+                    <div class="btn-group w-100" role="group">
+                        <input type="radio" class="btn-check" name="statusFilter" id="statusAll" checked>
+                        <label class="btn btn-outline-secondary" for="statusAll">Todos</label>
+
+                        <input type="radio" class="btn-check" name="statusFilter" id="statusAvailable" value="Disponible">
+                        <label class="btn btn-outline-primary" for="statusAvailable">Disponible</label>
+
+                        <input type="radio" class="btn-check" name="statusFilter" id="statusInProgress" value="En progreso">
+                        <label class="btn btn-outline-warning" for="statusInProgress">En progreso</label>
+
+                        <input type="radio" class="btn-check" name="statusFilter" id="statusCompleted" value="Completada">
+                        <label class="btn btn-outline-success" for="statusCompleted">Completada</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <div class="input-group mb-3">
+            <span class="input-group-text bg-transparent border-end-0">
+                <i class="fas fa-search"></i>
+            </span>
+            <input type="text" id="searchMissions" class="form-control border-start-0" placeholder="Buscar misiones...">
+        </div>
+
+        <div id="missionsContainer">
+            @if (!Model.Any())
+            {
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle"></i> No hay misiones disponibles en este momento. ¡Vuelve más tarde!
+                </div>
+            }
+            else
+            {
+                @foreach (var mission in Model)
+                {
+                    <div class="card mb-3 mission-card"
+                         data-difficulty="@mission.Difficulty"
+                         data-type="@mission.Type"
+                         data-status="@mission.Status">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="card-title mb-0">
+                                    <i class="fas @mission.GetTypeIcon()"></i> @mission.Title
+                                </h5>
+                                <span class="badge @mission.GetDifficultyClass()">@mission.Difficulty</span>
+                            </div>
+
+                            <p class="card-text mt-3">@mission.Description</p>
+
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="badge @mission.GetStatusClass()">
+                                        @mission.Status
+                                    </span>
+                                    <span class="ms-2">
+                                        <i class="fas fa-star text-warning"></i> @mission.RewardPoints pts
+                                    </span>
+                                </div>
+
+                                <div>
+                                    @if (mission.IsCompleted)
+                                    {
+                                        <span class="text-success me-2">
+                                            <i class="fas fa-check-circle"></i>
+                                            Completada
+                                        </span>
+                                    }
+                                    <a asp-action="Details" asp-route-id="@mission.MissionId" class="btn btn-sm btn-primary">
+                                        @if (mission.IsCompleted)
+                                        {
+                                            <span>Volver a jugar</span>
+                                        }
+                                        else if (mission.IsInProgress)
+                                        {
+                                            <span>Continuar</span>
+                                        }
+                                        else
+                                        {
+                                            <span>Comenzar</span>
+                                        }
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Búsqueda en tiempo real
+            $("#searchMissions").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#missionsContainer .mission-card").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+                });
+            });
+
+            // Filtro por dificultad
+            $("input[name='difficultyFilter']").on("change", function() {
+                filterMissions();
+            });
+
+            // Filtro por tipo
+            $("input[name='typeFilter']").on("change", function() {
+                filterMissions();
+            });
+
+            // Filtro por estado
+            $("input[name='statusFilter']").on("change", function() {
+                filterMissions();
+            });
+
+            function filterMissions() {
+                var difficulty = $("input[name='difficultyFilter']:checked").val() || "all";
+                var type = $("input[name='typeFilter']:checked").val() || "all";
+                var status = $("input[name='statusFilter']:checked").val() || "all";
+
+                $("#missionsContainer .mission-card").each(function() {
+                    var missionDifficulty = $(this).data("difficulty");
+                    var missionType = $(this).data("type");
+                    var missionStatus = $(this).data("status");
+
+                    var difficultyMatch = difficulty === "all" || missionDifficulty === difficulty;
+                    var typeMatch = type === "all" || missionType === type;
+                    var statusMatch = status === "all" || missionStatus === status;
+
+                    $(this).toggle(difficultyMatch && typeMatch && statusMatch);
+                });
+            }
+        });
+    </script>
+}

@@ -1,0 +1,268 @@
+﻿@model CiberAgentes.ViewModels.Password.PasswordDetailsViewModel
+@{
+    ViewData["Title"] = "Detalles de Contraseña";
+}
+
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0"><i class="fas fa-key"></i> Detalles de Contraseña</h5>
+                    <div>
+                        <a asp-action="Edit" asp-route-id="@Model.PasswordId" class="btn btn-sm btn-outline-primary">
+                            <i class="fas fa-edit"></i> Editar
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@Model.PasswordId" class="btn btn-sm btn-outline-danger">
+                            <i class="fas fa-trash"></i> Eliminar
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="row mb-4">
+                    <div class="col-md-4 text-md-end">
+                        <strong>Título:</strong>
+                    </div>
+                    <div class="col-md-8">
+                        @Model.Title
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-4 text-md-end">
+                        <strong>Nombre de Usuario:</strong>
+                    </div>
+                    <div class="col-md-8">
+                        @if (string.IsNullOrEmpty(Model.Username))
+                        {
+                            <span class="text-muted">No especificado</span>
+                        }
+                        else
+                        {
+                            <div class="d-flex align-items-center">
+                                <span id="username-text">@Model.Username</span>
+                                <button class="btn btn-sm btn-link ms-2 copy-text" data-text="@Model.Username" title="Copiar usuario">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-4 text-md-end">
+                        <strong>Nivel de Seguridad:</strong>
+                    </div>
+                    <div class="col-md-8">
+                        <span class="@Model.GetSecurityLevelClass()">
+                            @Model.GetSecurityLevelText() (@Model.SecurityLevel/100)
+                        </span>
+                        <div class="progress mt-1" style="height: 5px;">
+                            <div class="progress-bar @(Model.SecurityLevel < 40 ? "bg-danger" : Model.SecurityLevel < 70 ? "bg-warning" : "bg-success")"
+                                 role="progressbar"
+                                 style="width: @Model.SecurityLevel%;"
+                                 aria-valuenow="@Model.SecurityLevel"
+                                 aria-valuemin="0"
+                                 aria-valuemax="100">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-4 text-md-end">
+                        <strong>Contraseña:</strong>
+                    </div>
+                    <div class="col-md-8">
+                        @if (Model.IsDecrypted)
+                        {
+                            <div class="d-flex align-items-center">
+                                <code id="password-text" class="password-value bg-dark text-light p-2 rounded">@Model.DecryptedPassword</code>
+                                <button class="btn btn-sm btn-link ms-2 copy-text" data-text="@Model.DecryptedPassword" title="Copiar contraseña">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        }
+                        else
+                        {
+                            <div id="password-reveal-form">
+                                <div class="input-group" style="max-width: 400px;">
+                                    <input type="password" id="masterPassword" class="form-control" placeholder="Introduce tu contraseña maestra">
+                                    <button type="button" id="decrypt-btn" class="btn btn-primary">
+                                        <i class="fas fa-eye"></i> Mostrar
+                                    </button>
+                                </div>
+                                <small class="form-text">Ingresa tu contraseña maestra para revelar la contraseña almacenada.</small>
+                                <div id="decrypt-error" class="text-danger mt-2" style="display: none;"></div>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-4 text-md-end">
+                        <strong>Fecha de Creación:</strong>
+                    </div>
+                    <div class="col-md-8">
+                        @Model.CreatedAt.ToString("dd/MM/yyyy HH:mm")
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 text-md-end">
+                        <strong>Última Modificación:</strong>
+                    </div>
+                    <div class="col-md-8">
+                        @Model.UpdatedAt.ToString("dd/MM/yyyy HH:mm")
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-footer">
+                <div class="d-flex justify-content-between align-items-center">
+                    <a asp-action="Index" class="btn btn-outline-secondary">
+                        <i class="fas fa-arrow-left"></i> Volver a la Bóveda
+                    </a>
+                    <div id="password-timer" class="text-muted" style="display: none;">
+                        <i class="fas fa-clock"></i> La contraseña se ocultará en <span id="countdown">30</span> segundos
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Copiar al portapapeles
+        $('.copy-text').on('click', function() {
+            const text = $(this).data('text');
+            const tempInput = $('<input>');
+            $('body').append(tempInput);
+            tempInput.val(text).select();
+            document.execCommand('copy');
+            tempInput.remove();
+
+            const originalTitle = $(this).attr('title');
+            $(this).attr('title', '¡Copiado!');
+            $(this).tooltip('show');
+
+            setTimeout(() => {
+                $(this).attr('title', originalTitle);
+                $(this).tooltip('hide');
+            }, 1500);
+        });
+
+        // Inicializar tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[title]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+
+        // Desencriptar contraseña
+        $('#decrypt-btn').on('click', function() {
+            const masterPassword = $('#masterPassword').val();
+            if (!masterPassword) {
+                $('#decrypt-error').text('Debes ingresar tu contraseña maestra.').show();
+                return;
+            }
+
+            $.ajax({
+                url: '@Url.Action("Decrypt", "PasswordManager", new { id = Model.PasswordId })',
+                type: 'POST',
+                data: { masterPassword },
+                success: function(response) {
+                    if (response.success) {
+                        // Mostrar la contraseña desencriptada
+                        $('#password-reveal-form').html(`
+                            <div class="d-flex align-items-center">
+                                <code id="password-text" class="password-value bg-dark text-light p-2 rounded">${response.password}</code>
+                                <button class="btn btn-sm btn-link ms-2 copy-text" data-text="${response.password}" title="Copiar contraseña">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        `);
+
+                        // Reinicializar los tooltips para el nuevo botón
+                        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[title]'));
+                        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                            return new bootstrap.Tooltip(tooltipTriggerEl);
+                        });
+
+                        // Configurar los listeners de copia para el nuevo botón
+                        $('.copy-text').on('click', function() {
+                            const text = $(this).data('text');
+                            const tempInput = $('<input>');
+                            $('body').append(tempInput);
+                            tempInput.val(text).select();
+                            document.execCommand('copy');
+                            tempInput.remove();
+
+                            const originalTitle = $(this).attr('title');
+                            $(this).attr('title', '¡Copiado!');
+                            $(this).tooltip('show');
+
+                            setTimeout(() => {
+                                $(this).attr('title', originalTitle);
+                                $(this).tooltip('hide');
+                            }, 1500);
+                        });
+
+                        // Mostrar temporizador para ocultar la contraseña
+                        $('#password-timer').show();
+                        startPasswordTimer();
+                    } else {
+                        $('#decrypt-error').text(response.message).show();
+                    }
+                },
+                error: function() {
+                    $('#decrypt-error').text('Ocurrió un error al procesar la solicitud.').show();
+                }
+            });
+        });
+
+        // Temporizador para ocultar la contraseña después de 30 segundos
+        function startPasswordTimer() {
+            let countdown = 30;
+            $('#countdown').text(countdown);
+
+            const timer = setInterval(() => {
+                countdown--;
+                $('#countdown').text(countdown);
+
+                if (countdown <= 0) {
+                    clearInterval(timer);
+                    // Ocultar la contraseña y mostrar formulario de nuevo
+                    $('#password-reveal-form').html(`
+                        <div class="input-group" style="max-width: 400px;">
+                            <input type="password" id="masterPassword" class="form-control" placeholder="Introduce tu contraseña maestra">
+                            <button type="button" id="decrypt-btn" class="btn btn-primary">
+                                <i class="fas fa-eye"></i> Mostrar
+                            </button>
+                        </div>
+                        <small class="form-text">Ingresa tu contraseña maestra para revelar la contraseña almacenada.</small>
+                        <div id="decrypt-error" class="text-danger mt-2" style="display: none;"></div>
+                    `);
+
+                    // Reconfigurar evento para el botón de descifrado
+                    $('#decrypt-btn').on('click', function() {
+                        const masterPassword = $('#masterPassword').val();
+                        if (!masterPassword) {
+                            $('#decrypt-error').text('Debes ingresar tu contraseña maestra.').show();
+                            return;
+                        }
+
+                        // Resto del código de Ajax para descifrar...
+                        // (Este código tendrá que reconfigurarse cuando se oculta la contraseña)
+                        // Como solución simple, recargaremos la página
+                        window.location.reload();
+                    });
+
+                    $('#password-timer').hide();
+                }
+            }, 1000);
+        }
+    </script>
+}

@@ -1,0 +1,176 @@
+﻿@model CiberAgentes.ViewModels.Account.LoginRegisterViewModel
+@{
+    ViewData["Title"] = "Acceso al Sistema";
+    var activeTab = ViewData["ActiveTab"] as string ?? "Login";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link @(activeTab == "Login" ? "active" : "")"
+                                id="login-tab"
+                                data-bs-toggle="tab"
+                                data-bs-target="#login-content"
+                                type="button"
+                                role="tab"
+                                aria-controls="login-content"
+                                aria-selected="@(activeTab == "Login" ? "true" : "false")">
+                            <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link @(activeTab == "Register" ? "active" : "")"
+                                id="register-tab"
+                                data-bs-toggle="tab"
+                                data-bs-target="#register-content"
+                                type="button"
+                                role="tab"
+                                aria-controls="register-content"
+                                aria-selected="@(activeTab == "Register" ? "true" : "false")">
+                            <i class="fas fa-user-plus"></i> Registrarse
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="tab-content">
+                    <!-- Formulario de Login -->
+                    <div class="tab-pane fade @(activeTab == "Login" ? "show active" : "")" id="login-content" role="tabpanel" aria-labelledby="login-tab">
+                        <h4 class="card-title mb-4">Acceso de Agentes</h4>
+                        <form asp-controller="Account" asp-action="Login" method="post">
+                            <div asp-validation-summary="All" class="text-danger"></div>
+
+                            <div class="form-floating mb-3">
+                                <input asp-for="Login.Email" class="form-control" placeholder="email@ejemplo.com" />
+                                <label asp-for="Login.Email">Email</label>
+                                <span asp-validation-for="Login.Email" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input asp-for="Login.Password" class="form-control" placeholder="Contraseña" />
+                                <label asp-for="Login.Password">Contraseña</label>
+                                <span asp-validation-for="Login.Password" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-check mb-3">
+                                <input asp-for="Login.RememberMe" class="form-check-input" />
+                                <label asp-for="Login.RememberMe" class="form-check-label">Recordarme</label>
+                            </div>
+
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+                                </button>
+                                <a asp-controller="Account" asp-action="ForgotPassword" class="btn btn-link">
+                                    ¿Olvidaste tu contraseña?
+                                </a>
+                            </div>
+                        </form>
+
+                        <hr />
+
+                        <div class="text-center">
+                            <p>¿Quieres probar sin registrarte?</p>
+                            <a asp-controller="Account" asp-action="GuestDemo" class="btn btn-outline-primary">
+                                <i class="fas fa-user-secret"></i> Acceder como invitado
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Formulario de Registro -->
+                    <div class="tab-pane fade @(activeTab == "Register" ? "show active" : "")" id="register-content" role="tabpanel" aria-labelledby="register-tab">
+                        <h4 class="card-title mb-4">Registro de Nuevos Agentes</h4>
+                        <form asp-controller="Account" asp-action="Register" method="post">
+                            <div asp-validation-summary="All" class="text-danger"></div>
+
+                            <div class="form-floating mb-3">
+                                <input asp-for="Register.UserName" class="form-control" placeholder="Nombre de Agente" />
+                                <label asp-for="Register.UserName">Nombre de Agente</label>
+                                <span asp-validation-for="Register.UserName" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input asp-for="Register.Email" class="form-control" placeholder="email@ejemplo.com" />
+                                <label asp-for="Register.Email">Email</label>
+                                <span asp-validation-for="Register.Email" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input asp-for="Register.Password" class="form-control" placeholder="Contraseña" />
+                                <label asp-for="Register.Password">Contraseña</label>
+                                <span asp-validation-for="Register.Password" class="text-danger"></span>
+                                <small class="form-text">La contraseña debe tener al menos 8 caracteres, incluyendo mayúsculas, minúsculas, números y caracteres especiales.</small>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input asp-for="Register.ConfirmPassword" class="form-control" placeholder="Confirmar Contraseña" />
+                                <label asp-for="Register.ConfirmPassword">Confirmar Contraseña</label>
+                                <span asp-validation-for="Register.ConfirmPassword" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-check mb-3">
+                                <input asp-for="Register.AcceptTerms" class="form-check-input" />
+                                <label asp-for="Register.AcceptTerms" class="form-check-label">
+                                    Acepto los <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">términos y condiciones</a>
+                                </label>
+                                <span asp-validation-for="Register.AcceptTerms" class="text-danger"></span>
+                            </div>
+
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-user-plus"></i> Registrarse
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de términos y condiciones -->
+<div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="termsModalLabel">Términos y Condiciones</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h5>Términos de Uso para CiberAgentes</h5>
+                <p>Esta aplicación educativa está diseñada para enseñar sobre seguridad de contraseñas y buenas prácticas de ciberseguridad.</p>
+
+                <h6>1. Uso Educativo</h6>
+                <p>Esta aplicación es para fines educativos y de aprendizaje. No debe utilizarse para actividades maliciosas o ilegales.</p>
+
+                <h6>2. Almacenamiento de Datos</h6>
+                <p>Las contraseñas que almacenes en la Bóveda Secreta están cifradas. Sin embargo, te recomendamos no almacenar contraseñas sensibles críticas.</p>
+
+                <h6>3. Privacidad</h6>
+                <p>Respetamos tu privacidad. Solo recopilamos la información necesaria para el funcionamiento de la aplicación.</p>
+
+                <h6>4. Educación Responsable</h6>
+                <p>Te comprometes a usar los conocimientos adquiridos de manera ética y responsable.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Entendido</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        // Cambiar pestaña activa al cargar si hay errores
+        $(document).ready(function() {
+            if ('@activeTab' === 'Register') {
+                $('#register-tab').tab('show');
+            }
+        });
+    </script>
+}

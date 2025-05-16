@@ -1,0 +1,248 @@
+﻿@model CiberAgentes.ViewModels.Password.PasswordFormViewModel
+@{
+    ViewData["Title"] = Model.IsNewPassword ? "Agregar Contraseña" : "Editar Contraseña";
+}
+
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    @if (Model.IsNewPassword)
+                    {
+                        <i class="fas fa-plus-circle"></i> 
+                        <span>Agregar Nueva Contraseña</span>
+                    }
+                    else
+                    {
+                        <i class="fas fa-edit"></i> 
+                        <span>Editar Contraseña</span>
+                    }
+                </h5>
+            </div>
+            <div class="card-body">
+                <form asp-action="@(Model.IsNewPassword ? "Create" : "Edit")" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    
+                    @if (!Model.IsNewPassword)
+                    {
+                        <input type="hidden" asp-for="PasswordId" />
+                    }
+                    
+                    <div class="mb-3">
+                        <label asp-for="Title" class="form-label">Título o Descripción</label>
+                        <input asp-for="Title" class="form-control" placeholder="Ej: Email personal, Netflix, Banco..." />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                        <small class="form-text">Usa un nombre descriptivo que te ayude a identificar esta contraseña.</small>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label asp-for="Username" class="form-label">Nombre de Usuario (opcional)</label>
+                        <input asp-for="Username" class="form-control" placeholder="Ej: usuario@email.com" />
+                        <span asp-validation-for="Username" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label asp-for="Password" class="form-label">Contraseña</label>
+                        <div class="input-group">
+                            <input asp-for="Password" class="form-control" type="password" placeholder="@(Model.IsNewPassword ? "Introduce la contraseña a guardar" : "Deja en blanco para mantener la actual")" />
+                            <button type="button" class="btn btn-outline-secondary toggle-password">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button type="button" class="btn btn-outline-primary" id="generatePassword">
+                                <i class="fas fa-key"></i> Generar
+                            </button>
+                        </div>
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                        @if (!Model.IsNewPassword)
+                        {
+                            <small class="form-text">Deja este campo en blanco si no deseas cambiar la contraseña.</small>
+                        }
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label asp-for="MasterPassword" class="form-label">Tu Contraseña Maestra</label>
+                        <div class="input-group">
+                            <input asp-for="MasterPassword" class="form-control" type="password" placeholder="Introduce tu contraseña de acceso" />
+                            <button type="button" class="btn btn-outline-secondary toggle-password">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <span asp-validation-for="MasterPassword" class="text-danger"></span>
+                        <small class="form-text">Esta es la contraseña con la que accedes a CiberAgentes. Se necesita para cifrar de forma segura.</small>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between">
+                        <a asp-action="Index" class="btn btn-outline-secondary">
+                            <i class="fas fa-arrow-left"></i> Volver a la Bóveda
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            @if (Model.IsNewPassword)
+                            {
+                                <i class="fas fa-save"></i>
+                                <span>Guardar Contraseña</span>
+                            }
+                            else
+                            {
+                                <i class="fas fa-check"></i>
+                                <span>Actualizar Contraseña</span>
+                            }
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div class="card mt-4">
+            <div class="card-header">
+                <h5><i class="fas fa-lightbulb"></i> Consejos</h5>
+            </div>
+            <div class="card-body">
+                <ul class="mb-0">
+                    <li>Usa el botón <strong>Generar</strong> para crear una contraseña aleatoria segura.</li>
+                    <li>Procura utilizar contraseñas diferentes para cada servicio.</li>
+                    <li>Las contraseñas se guardan cifradas y sólo se pueden descifrar con tu contraseña maestra.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Generador de Contraseñas -->
+<div class="modal fade" id="passwordGeneratorModal" tabindex="-1" aria-labelledby="passwordGeneratorModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="passwordGeneratorModalLabel">Generar Contraseña</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="passwordLength" class="form-label">Longitud</label>
+                    <input type="range" class="form-range" id="passwordLength" min="8" max="32" value="16">
+                    <div class="d-flex justify-content-between">
+                        <span>8</span>
+                        <span id="passwordLengthValue">16</span>
+                        <span>32</span>
+                    </div>
+                </div>
+                
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="includeLowercase" checked>
+                            <label class="form-check-label" for="includeLowercase">
+                                Minúsculas (a-z)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="includeUppercase" checked>
+                            <label class="form-check-label" for="includeUppercase">
+                                Mayúsculas (A-Z)
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="includeNumbers" checked>
+                            <label class="form-check-label" for="includeNumbers">
+                                Números (0-9)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="includeSymbols" checked>
+                            <label class="form-check-label" for="includeSymbols">
+                                Símbolos (!@#$%^&*)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="generatedPassword" class="form-label">Contraseña generada</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="generatedPassword" readonly>
+                        <button class="btn btn-outline-secondary" type="button" id="refreshPassword">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="useGeneratedPassword">Usar esta contraseña</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        // Mostrar/ocultar contraseña
+        $('.toggle-password').on('click', function() {
+            const input = $(this).closest('.input-group').find('input');
+            const icon = $(this).find('i');
+            
+            if (input.attr('type') === 'password') {
+                input.attr('type', 'text');
+                icon.removeClass('fa-eye').addClass('fa-eye-slash');
+            } else {
+                input.attr('type', 'password');
+                icon.removeClass('fa-eye-slash').addClass('fa-eye');
+            }
+        });
+        
+        // Generador de contraseñas
+        $('#generatePassword').on('click', function() {
+            generateRandomPassword();
+            $('#passwordGeneratorModal').modal('show');
+        });
+        
+        $('#passwordLength').on('input', function() {
+            $('#passwordLengthValue').text($(this).val());
+        });
+        
+        $('#refreshPassword').on('click', function() {
+            generateRandomPassword();
+        });
+        
+        $('#useGeneratedPassword').on('click', function() {
+            const password = $('#generatedPassword').val();
+            $('#Password').val(password);
+            $('#passwordGeneratorModal').modal('hide');
+        });
+        
+        function generateRandomPassword() {
+            const length = $('#passwordLength').val();
+            const useLower = $('#includeLowercase').is(':checked');
+            const useUpper = $('#includeUppercase').is(':checked');
+            const useNumbers = $('#includeNumbers').is(':checked');
+            const useSymbols = $('#includeSymbols').is(':checked');
+            
+            let charset = '';
+            if (useLower) charset += 'abcdefghijklmnopqrstuvwxyz';
+            if (useUpper) charset += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            if (useNumbers) charset += '0123456789';
+            if (useSymbols) charset += '!@#$%^&*()_+-=[]{}|;:,.<>?';
+            
+            if (!charset) {
+                $('#includeLowercase').prop('checked', true);
+                charset = 'abcdefghijklmnopqrstuvwxyz';
+            }
+            
+            let password = '';
+            for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * charset.length);
+                password += charset[randomIndex];
+            }
+            
+            $('#generatedPassword').val(password);
+        }
+        
+        // Inicializar al cargar la página
+        $(document).ready(function() {
+            generateRandomPassword();
+        });
+    </script>
+}

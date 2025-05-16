@@ -1,0 +1,51 @@
+﻿@model CiberAgentes.ViewModels.Password.PasswordViewModel
+@{
+    ViewData["Title"] = "Eliminar Contraseña";
+}
+
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <div class="card border-danger">
+            <div class="card-header bg-danger text-white">
+                <h5 class="mb-0"><i class="fas fa-exclamation-triangle"></i> Confirmar Eliminación</h5>
+            </div>
+            <div class="card-body">
+                <h5 class="mb-4">¿Estás seguro de que deseas eliminar esta contraseña?</h5>
+
+                <div class="row mb-3">
+                    <div class="col-md-4 text-md-end">
+                        <strong>Título:</strong>
+                    </div>
+                    <div class="col-md-8">
+                        @Model.Title
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-4 text-md-end">
+                        <strong>Usuario:</strong>
+                    </div>
+                    <div class="col-md-8">
+                        @(string.IsNullOrEmpty(Model.Username) ? "-" : Model.Username)
+                    </div>
+                </div>
+
+                <div class="alert alert-warning mt-4">
+                    <i class="fas fa-exclamation-circle"></i> Esta acción no se puede deshacer. Una vez eliminada, la contraseña no podrá recuperarse.
+                </div>
+
+                <form asp-action="Delete" method="post">
+                    <input type="hidden" asp-for="PasswordId" />
+                    <div class="d-flex justify-content-between mt-4">
+                        <a asp-action="Index" class="btn btn-outline-secondary">
+                            <i class="fas fa-arrow-left"></i> Cancelar
+                        </a>
+                        <button type="submit" class="btn btn-danger">
+                            <i class="fas fa-trash"></i> Eliminar Contraseña
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,249 @@
+﻿@model CiberAgentes.ViewModels.Password.PasswordGeneratorViewModel
+@{
+    ViewData["Title"] = "Generador de Contraseñas";
+}
+
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <div class="card">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link @(!Model.IsGenerated ? "active" : "")" 
+                                id="evaluate-tab" 
+                                data-bs-toggle="tab" 
+                                data-bs-target="#evaluate-content" 
+                                type="button" 
+                                role="tab">
+                            <i class="fas fa-search-plus"></i> Evaluar Contraseña
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link @(Model.IsGenerated ? "active" : "")" 
+                                id="generate-tab" 
+                                data-bs-toggle="tab" 
+                                data-bs-target="#generate-content" 
+                                type="button" 
+                                role="tab">
+                            <i class="fas fa-key"></i> Generar Contraseña
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="tab-content">
+                    <!-- Evaluar Contraseña -->
+                    <div class="tab-pane fade @(!Model.IsGenerated ? "show active" : "")" id="evaluate-content" role="tabpanel">
+                        <h4 class="card-title">Evaluador de Seguridad</h4>
+                        <p class="card-subtitle mb-4">Comprueba qué tan segura es tu contraseña actual.</p>
+                        
+                        <form asp-action="Evaluate" method="post">
+                            <div class="mb-4">
+                                <label asp-for="Password" class="form-label">Contraseña a evaluar</label>
+                                <div class="password-container">
+                                    <input asp-for="Password" class="form-control" type="password" autocomplete="off" />
+                                    <button type="button" class="btn btn-link toggle-password" tabindex="-1">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                            
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-search-plus"></i> Evaluar Seguridad
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Generar Contraseña -->
+                    <div class="tab-pane fade @(Model.IsGenerated ? "show active" : "")" id="generate-content" role="tabpanel">
+                        <h4 class="card-title">Generador de Contraseñas</h4>
+                        <p class="card-subtitle mb-4">Crea contraseñas seguras y difíciles de descifrar.</p>
+                        
+                        <form asp-action="Generate" method="post">
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <label asp-for="GenerateOptions.Length" class="form-label">Longitud</label>
+                                    <div class="input-group">
+                                        <input asp-for="GenerateOptions.Length" class="form-control" type="number" min="8" max="32" step="1" />
+                                        <span class="input-group-text">caracteres</span>
+                                    </div>
+                                    <span asp-validation-for="GenerateOptions.Length" class="text-danger"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input asp-for="GenerateOptions.IncludeLowercase" class="form-check-input" />
+                                        <label asp-for="GenerateOptions.IncludeLowercase" class="form-check-label">
+                                            Incluir minúsculas (a-z)
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="form-check">
+                                        <input asp-for="GenerateOptions.IncludeUppercase" class="form-check-input" />
+                                        <label asp-for="GenerateOptions.IncludeUppercase" class="form-check-label">
+                                            Incluir mayúsculas (A-Z)
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input asp-for="GenerateOptions.IncludeNumbers" class="form-check-input" />
+                                        <label asp-for="GenerateOptions.IncludeNumbers" class="form-check-label">
+                                            Incluir números (0-9)
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="form-check">
+                                        <input asp-for="GenerateOptions.IncludeSpecial" class="form-check-input" />
+                                        <label asp-for="GenerateOptions.IncludeSpecial" class="form-check-label">
+                                            Incluir caracteres especiales (!@#$%^&*)
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="d-grid mb-4">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-key"></i> Generar Contraseña
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Resultado -->
+                @if (!string.IsNullOrEmpty(Model.Password) && Model.SecurityScore > 0)
+                {
+                    <div class="result-container mt-4 p-4 border rounded-3">
+                        <h5 class="mb-3">Resultado:</h5>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Contraseña</label>
+                            <div class="password-container">
+                                <input type="text" class="form-control result-password" value="@Model.Password" readonly />
+                                <button type="button" class="btn btn-sm btn-primary copy-password" tabindex="-1" data-bs-toggle="tooltip" title="Copiar">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label d-flex justify-content-between">
+                                <span>Nivel de Seguridad: </span>
+                                <span class="strength-@Model.GetSecurityClass()">@Model.SecurityScore/100 - @Model.SecurityLevel</span>
+                            </label>
+                            <div class="password-strength-meter">
+                                <div class="bg-@Model.GetSecurityClass()" style="width: @Model.SecurityScore%;"></div>
+                            </div>
+                            <small class="form-text">@Model.SecurityMessage</small>
+                        </div>
+                        
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <div class="d-flex justify-content-between align-items-center mt-4">
+                                <a asp-controller="PasswordManager" asp-action="Create" class="btn btn-neon">
+                                    <i class="fas fa-save"></i> Guardar en la Bóveda
+                                </a>
+                                <div>
+                                    @if (Model.SecurityScore >= 80)
+                                    {
+                                        <span class="badge bg-success">
+                                            <i class="fas fa-trophy"></i> ¡Excelente seguridad!
+                                        </span>
+                                    }
+                                    else if (Model.SecurityScore >= 60)
+                                    {
+                                        <span class="badge bg-warning text-dark">
+                                            <i class="fas fa-shield-alt"></i> Seguridad buena
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-danger">
+                                            <i class="fas fa-exclamation-triangle"></i> Seguridad baja
+                                        </span>
+                                    }
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="alert alert-info mt-3">
+                                <i class="fas fa-info-circle"></i> <a asp-controller="Account" asp-action="Index">Inicia sesión</a> para guardar esta contraseña en tu bóveda segura.
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+        
+        <!-- Sugerencias de seguridad -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h5><i class="fas fa-lightbulb"></i> Consejos para contraseñas seguras</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check-circle text-success"></i> Usa al menos 12 caracteres</li>
+                            <li><i class="fas fa-check-circle text-success"></i> Combina mayúsculas y minúsculas</li>
+                            <li><i class="fas fa-check-circle text-success"></i> Incluye números y símbolos</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-times-circle text-danger"></i> No uses información personal</li>
+                            <li><i class="fas fa-times-circle text-danger"></i> Evita palabras del diccionario</li>
+                            <li><i class="fas fa-times-circle text-danger"></i> No reutilices contraseñas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        // Mostrar/ocultar contraseña
+        $('.toggle-password').on('click', function() {
+            const input = $(this).parent().find('input');
+            const icon = $(this).find('i');
+            
+            if (input.attr('type') === 'password') {
+                input.attr('type', 'text');
+                icon.removeClass('fa-eye').addClass('fa-eye-slash');
+            } else {
+                input.attr('type', 'password');
+                icon.removeClass('fa-eye-slash').addClass('fa-eye');
+            }
+        });
+        
+        // Copiar contraseña al portapapeles
+        $('.copy-password').on('click', function() {
+            const input = $(this).parent().find('input');
+            input.select();
+            document.execCommand('copy');
+            
+            $(this).attr('data-bs-original-title', '¡Copiado!').tooltip('show');
+            
+            setTimeout(() => {
+                $(this).attr('data-bs-original-title', 'Copiar').tooltip('hide');
+            }, 1500);
+        });
+        
+        // Inicializar tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    </script>
+}

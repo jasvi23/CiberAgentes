@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Juanan\\Desktop\\CiberAgentes\\CiberAgentes\\CiberAgentes.csproj": {}
+    "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\CiberAgentes.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Juanan\\Desktop\\CiberAgentes\\CiberAgentes\\CiberAgentes.csproj": {
+    "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\CiberAgentes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Juanan\\Desktop\\CiberAgentes\\CiberAgentes\\CiberAgentes.csproj",
+        "projectUniqueName": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\CiberAgentes.csproj",
         "projectName": "CiberAgentes",
-        "projectPath": "C:\\Users\\Juanan\\Desktop\\CiberAgentes\\CiberAgentes\\CiberAgentes.csproj",
+        "projectPath": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\CiberAgentes.csproj",
         "packagesPath": "C:\\Users\\Juanan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Juanan\\Desktop\\CiberAgentes\\CiberAgentes\\obj\\",
+        "outputPath": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

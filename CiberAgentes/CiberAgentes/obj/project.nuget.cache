@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "P1s1e19Rs1A=",
+  "dgSpecHash": "CK1Lb+Su6GE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Juanan\\Desktop\\CiberAgentes\\CiberAgentes\\CiberAgentes.csproj",
+  "projectFilePath": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\CiberAgentes.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Juanan\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\Juanan\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

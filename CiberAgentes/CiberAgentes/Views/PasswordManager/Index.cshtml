@@ -1,0 +1,141 @@
+﻿@model IEnumerable<CiberAgentes.ViewModels.Password.PasswordViewModel>
+@{
+    ViewData["Title"] = "Bóveda Secreta";
+}
+
+<div class="row mb-4">
+    <div class="col-md-8">
+        <h2><i class="fas fa-vault"></i> Bóveda Secreta</h2>
+        <p class="lead">Almacena tus contraseñas de forma segura con cifrado de nivel agente.</p>
+    </div>
+    <div class="col-md-4 text-md-end">
+        <a asp-action="Create" class="btn btn-primary">
+            <i class="fas fa-plus-circle"></i> Nueva Contraseña
+        </a>
+    </div>
+</div>
+
+@if (!Model.Any())
+{
+    <div class="card">
+        <div class="card-body text-center py-5">
+            <div class="mb-4">
+                <i class="fas fa-vault fa-4x text-muted"></i>
+            </div>
+            <h4>Tu bóveda está vacía</h4>
+            <p class="text-muted">Aún no has almacenado ninguna contraseña. Comienza a proteger tus contraseñas guardándolas aquí.</p>
+            <div class="mt-4">
+                <a asp-action="Create" class="btn btn-primary">
+                    <i class="fas fa-plus-circle"></i> Añadir Primera Contraseña
+                </a>
+                <a asp-controller="PasswordGenerator" asp-action="Index" class="btn btn-outline-secondary ms-2">
+                    <i class="fas fa-key"></i> Generar Contraseña
+                </a>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="card">
+        <div class="card-header bg-transparent d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Contraseñas almacenadas</h5>
+            <div class="input-group" style="max-width: 300px;">
+                <span class="input-group-text bg-transparent border-end-0">
+                    <i class="fas fa-search"></i>
+                </span>
+                <input type="text" id="searchInput" class="form-control border-start-0" placeholder="Buscar...">
+            </div>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>Título</th>
+                            <th>Usuario</th>
+                            <th>Seguridad</th>
+                            <th>Actualizada</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr class="password-vault-item">
+                                <td>
+                                    <strong>@item.Title</strong>
+                                </td>
+                                <td>
+                                    @(string.IsNullOrEmpty(item.Username) ? "-" : item.Username)
+                                </td>
+                                <td>
+                                    <span class="@item.GetSecurityLevelClass()">
+                                        @item.GetSecurityLevelText()
+                                        <span class="ms-2">
+                                            @if (item.SecurityLevel >= 80)
+                                            {
+                                                <i class="fas fa-shield-alt"></i>
+                                            }
+                                            else if (item.SecurityLevel >= 60)
+                                            {
+                                                <i class="fas fa-shield-alt"></i>
+                                            }
+                                            else
+                                            {
+                                                <i class="fas fa-exclamation-triangle"></i>
+                                            }
+                                        </span>
+                                    </span>
+                                </td>
+                                <td>
+                                    <small>@item.UpdatedAt.ToString("dd/MM/yyyy")</small>
+                                </td>
+                                <td>
+                                    <div class="btn-group btn-group-sm">
+                                        <a asp-action="Details" asp-route-id="@item.PasswordId" class="btn btn-outline-primary">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                        <a asp-action="Edit" asp-route-id="@item.PasswordId" class="btn btn-outline-secondary">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a asp-action="Delete" asp-route-id="@item.PasswordId" class="btn btn-outline-danger">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="card mt-4">
+    <div class="card-header">
+        <h5><i class="fas fa-info-circle"></i> Seguridad de la Bóveda</h5>
+    </div>
+    <div class="card-body">
+        <p>Todas las contraseñas almacenadas en la Bóveda Secreta están protegidas mediante cifrado AES de 256 bits.</p>
+        <p>Para ver o editar una contraseña, necesitarás tu "contraseña maestra" (la contraseña de tu cuenta).</p>
+        <div class="alert alert-warning">
+            <i class="fas fa-exclamation-triangle"></i> <strong>Recuerda:</strong> Si olvidas tu contraseña maestra, no podrás recuperar las contraseñas almacenadas.
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Búsqueda en tiempo real
+        $(document).ready(function() {
+            $("#searchInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("tbody tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+                });
+            });
+        });
+    </script>
+}
