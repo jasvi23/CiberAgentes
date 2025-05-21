@@ -6,3 +6,12 @@ C:\Users\Juanan\Desktop\CiberAgentes\CiberAgentes\obj\Debug\net8.0\CiberAgentes.
 C:\Users\Juanan\Desktop\CiberAgentes\CiberAgentes\obj\Debug\net8.0\CiberAgentes.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Juanan\Desktop\CiberAgentes\CiberAgentes\obj\Debug\net8.0\CiberAgentes.RazorAssemblyInfo.cache
 C:\Users\Juanan\Desktop\CiberAgentes\CiberAgentes\obj\Debug\net8.0\CiberAgentes.RazorAssemblyInfo.cs
+C:\Users\Juanan\Desktop\ProyectoInterfaces\CiberAgentes\CiberAgentes\obj\Debug\net8.0\CiberAgentes.csproj.AssemblyReference.cache
+C:\Users\Juanan\Desktop\ProyectoInterfaces\CiberAgentes\CiberAgentes\obj\Debug\net8.0\CiberAgentes.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Juanan\Desktop\ProyectoInterfaces\CiberAgentes\CiberAgentes\obj\Debug\net8.0\CiberAgentes.AssemblyInfoInputs.cache
+C:\Users\Juanan\Desktop\ProyectoInterfaces\CiberAgentes\CiberAgentes\obj\Debug\net8.0\CiberAgentes.AssemblyInfo.cs
+C:\Users\Juanan\Desktop\ProyectoInterfaces\CiberAgentes\CiberAgentes\obj\Debug\net8.0\CiberAgentes.csproj.CoreCompileInputs.cache
+C:\Users\Juanan\Desktop\ProyectoInterfaces\CiberAgentes\CiberAgentes\obj\Debug\net8.0\CiberAgentes.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Juanan\Desktop\ProyectoInterfaces\CiberAgentes\CiberAgentes\obj\Debug\net8.0\CiberAgentes.RazorAssemblyInfo.cache
+C:\Users\Juanan\Desktop\ProyectoInterfaces\CiberAgentes\CiberAgentes\obj\Debug\net8.0\CiberAgentes.RazorAssemblyInfo.cs
+C:\Users\Juanan\Desktop\ProyectoInterfaces\CiberAgentes\CiberAgentes\obj\Debug\net8.0\CiberAgentes.sourcelink.json

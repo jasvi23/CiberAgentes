@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CiberAgentes")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4ba76ca42c4e8c5bfc70d839faa6a8dd8588dd87")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7c183b0400ad23e5b7d60dd5ad4313621e9c45e3")]
 [assembly: System.Reflection.AssemblyProductAttribute("CiberAgentes")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CiberAgentes")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

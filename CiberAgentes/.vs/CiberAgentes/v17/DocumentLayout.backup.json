@@ -1,17 +1,85 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Juanan\\Desktop\\CiberAgentes\\",
+  "WorkspaceRootPath": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|c:\\users\\juanan\\desktop\\ciberagentes\\ciberagentes\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|solutionrelative:ciberagentes\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|c:\\users\\juanan\\desktop\\proyectointerfaces\\ciberagentes\\ciberagentes\\models\\password.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|solutionrelative:ciberagentes\\models\\password.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|c:\\users\\juanan\\desktop\\ciberagentes\\ciberagentes\\controllers\\missionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|c:\\users\\juanan\\desktop\\proyectointerfaces\\ciberagentes\\ciberagentes\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|solutionrelative:ciberagentes\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|c:\\users\\juanan\\desktop\\proyectointerfaces\\ciberagentes\\ciberagentes\\controllers\\achievementscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|solutionrelative:ciberagentes\\controllers\\achievementscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|c:\\users\\juanan\\desktop\\proyectointerfaces\\ciberagentes\\ciberagentes\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|solutionrelative:ciberagentes\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|c:\\users\\juanan\\desktop\\proyectointerfaces\\ciberagentes\\ciberagentes\\controllers\\missionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|solutionrelative:ciberagentes\\controllers\\missionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|c:\\users\\juanan\\desktop\\ciberagentes\\ciberagentes\\viewmodels\\mission\\missiondetailviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|c:\\users\\juanan\\desktop\\proyectointerfaces\\ciberagentes\\ciberagentes\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|solutionrelative:ciberagentes\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|c:\\users\\juanan\\desktop\\proyectointerfaces\\ciberagentes\\ciberagentes\\views\\achievements\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|solutionrelative:ciberagentes\\views\\achievements\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|c:\\users\\juanan\\desktop\\proyectointerfaces\\ciberagentes\\ciberagentes\\views\\missions\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|solutionrelative:ciberagentes\\views\\missions\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|c:\\users\\juanan\\desktop\\proyectointerfaces\\ciberagentes\\ciberagentes\\views\\passwordmanager\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|solutionrelative:ciberagentes\\views\\passwordmanager\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|c:\\users\\juanan\\desktop\\proyectointerfaces\\ciberagentes\\ciberagentes\\views\\passwordmanager\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|solutionrelative:ciberagentes\\views\\passwordmanager\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|c:\\users\\juanan\\desktop\\proyectointerfaces\\ciberagentes\\ciberagentes\\views\\passwordmanager\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|solutionrelative:ciberagentes\\views\\passwordmanager\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|c:\\users\\juanan\\desktop\\proyectointerfaces\\ciberagentes\\ciberagentes\\views\\passwordmanager\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|solutionrelative:ciberagentes\\views\\passwordmanager\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|c:\\users\\juanan\\desktop\\proyectointerfaces\\ciberagentes\\ciberagentes\\views\\passwordgenerator\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|solutionrelative:ciberagentes\\views\\passwordgenerator\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|c:\\users\\juanan\\desktop\\proyectointerfaces\\ciberagentes\\ciberagentes\\views\\account\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|solutionrelative:ciberagentes\\views\\account\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|c:\\users\\juanan\\desktop\\proyectointerfaces\\ciberagentes\\ciberagentes\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|solutionrelative:ciberagentes\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|c:\\users\\juanan\\desktop\\proyectointerfaces\\ciberagentes\\ciberagentes\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|solutionrelative:ciberagentes\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|c:\\users\\juanan\\desktop\\proyectointerfaces\\ciberagentes\\ciberagentes\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|solutionrelative:ciberagentes\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|c:\\users\\juanan\\desktop\\proyectointerfaces\\ciberagentes\\ciberagentes\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|solutionrelative:ciberagentes\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|c:\\users\\juanan\\desktop\\proyectointerfaces\\ciberagentes\\ciberagentes\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|solutionrelative:ciberagentes\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|c:\\users\\juanan\\desktop\\proyectointerfaces\\ciberagentes\\ciberagentes\\viewmodels\\mission\\missiondetailviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9BB0B56B-8FA3-4DC3-A235-5BBB7E35A341}|CiberAgentes\\CiberAgentes.csproj|solutionrelative:ciberagentes\\viewmodels\\mission\\missiondetailviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -31,41 +99,244 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Juanan\\Desktop\\CiberAgentes\\CiberAgentes\\Program.cs",
-              "RelativeDocumentMoniker": "CiberAgentes\\Program.cs",
-              "ToolTip": "C:\\Users\\Juanan\\Desktop\\CiberAgentes\\CiberAgentes\\Program.cs",
-              "RelativeToolTip": "CiberAgentes\\Program.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "Password.cs",
+              "DocumentMoniker": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\Models\\Password.cs",
+              "RelativeDocumentMoniker": "CiberAgentes\\Models\\Password.cs",
+              "ToolTip": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\Models\\Password.cs",
+              "RelativeToolTip": "CiberAgentes\\Models\\Password.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAcwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T07:29:06.698Z",
+              "WhenOpened": "2025-05-21T16:33:24.505Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MissionDetailViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Juanan\\Desktop\\CiberAgentes\\CiberAgentes\\ViewModels\\Mission\\MissionDetailViewModel.cs",
-              "RelativeDocumentMoniker": "CiberAgentes\\ViewModels\\Mission\\MissionDetailViewModel.cs",
-              "ToolTip": "C:\\Users\\Juanan\\Desktop\\CiberAgentes\\CiberAgentes\\ViewModels\\Mission\\MissionDetailViewModel.cs",
-              "RelativeToolTip": "CiberAgentes\\ViewModels\\Mission\\MissionDetailViewModel.cs",
-              "ViewState": "AgIAAIcAAAAAAAAAAAAUwJwAAAAFAAAAAAAAAA==",
+              "Title": "AchievementsController.cs",
+              "DocumentMoniker": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\Controllers\\AchievementsController.cs",
+              "RelativeDocumentMoniker": "CiberAgentes\\Controllers\\AchievementsController.cs",
+              "ToolTip": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\Controllers\\AchievementsController.cs",
+              "RelativeToolTip": "CiberAgentes\\Controllers\\AchievementsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T07:24:58.854Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-16T15:36:12.319Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "CiberAgentes\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "CiberAgentes\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T15:36:12.667Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MissionsController.cs",
-              "DocumentMoniker": "C:\\Users\\Juanan\\Desktop\\CiberAgentes\\CiberAgentes\\Controllers\\MissionsController.cs",
-              "RelativeDocumentMoniker": "CiberAgentes\\Controllers\\MissionsController.cs",
-              "ToolTip": "C:\\Users\\Juanan\\Desktop\\CiberAgentes\\CiberAgentes\\Controllers\\MissionsController.cs",
-              "RelativeToolTip": "CiberAgentes\\Controllers\\MissionsController.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAwwAEAAAAfAAAAAAAAAA==",
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "CiberAgentes\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "CiberAgentes\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAiwEYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T07:24:11.533Z",
+              "WhenOpened": "2025-05-16T15:36:07.206Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "site.js",
+              "DocumentMoniker": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\wwwroot\\js\\site.js",
+              "RelativeDocumentMoniker": "CiberAgentes\\wwwroot\\js\\site.js",
+              "ToolTip": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\wwwroot\\js\\site.js",
+              "RelativeToolTip": "CiberAgentes\\wwwroot\\js\\site.js",
+              "ViewState": "AgIAAMIAAAAAAAAAAAAiwN8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-05-16T15:35:07.26Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\Views\\Achievements\\Index.cshtml",
+              "RelativeDocumentMoniker": "CiberAgentes\\Views\\Achievements\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\Views\\Achievements\\Index.cshtml",
+              "RelativeToolTip": "CiberAgentes\\Views\\Achievements\\Index.cshtml",
+              "ViewState": "AgIAALYAAAAAAAAAAAAcwNMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-16T15:34:59.028Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\Views\\Missions\\Index.cshtml",
+              "RelativeDocumentMoniker": "CiberAgentes\\Views\\Missions\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\Views\\Missions\\Index.cshtml",
+              "RelativeToolTip": "CiberAgentes\\Views\\Missions\\Index.cshtml",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAAMEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-16T15:33:48.798Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\Views\\PasswordManager\\Delete.cshtml",
+              "RelativeDocumentMoniker": "CiberAgentes\\Views\\PasswordManager\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\Views\\PasswordManager\\Delete.cshtml",
+              "RelativeToolTip": "CiberAgentes\\Views\\PasswordManager\\Delete.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAcwDIAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-16T15:33:15.525Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\Views\\PasswordManager\\Details.cshtml",
+              "RelativeDocumentMoniker": "CiberAgentes\\Views\\PasswordManager\\Details.cshtml",
+              "ToolTip": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\Views\\PasswordManager\\Details.cshtml",
+              "RelativeToolTip": "CiberAgentes\\Views\\PasswordManager\\Details.cshtml",
+              "ViewState": "AgIAAO0AAAAAAAAAAAAQwAsBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-16T15:32:27.86Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\Views\\PasswordManager\\Create.cshtml",
+              "RelativeDocumentMoniker": "CiberAgentes\\Views\\PasswordManager\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\Views\\PasswordManager\\Create.cshtml",
+              "RelativeToolTip": "CiberAgentes\\Views\\PasswordManager\\Create.cshtml",
+              "ViewState": "AgIAANkAAAAAAAAAAAAQwPcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-16T15:32:01.085Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\Views\\PasswordManager\\Index.cshtml",
+              "RelativeDocumentMoniker": "CiberAgentes\\Views\\PasswordManager\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\Views\\PasswordManager\\Index.cshtml",
+              "RelativeToolTip": "CiberAgentes\\Views\\PasswordManager\\Index.cshtml",
+              "ViewState": "AgIAAG4AAAAAAAAAAAAAwIwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-16T15:31:24.246Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\Views\\PasswordGenerator\\Index.cshtml",
+              "RelativeDocumentMoniker": "CiberAgentes\\Views\\PasswordGenerator\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\Views\\PasswordGenerator\\Index.cshtml",
+              "RelativeToolTip": "CiberAgentes\\Views\\PasswordGenerator\\Index.cshtml",
+              "ViewState": "AgIAANoAAAAAAAAAAAAQwPgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-16T15:30:51.11Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\Views\\Account\\Index.cshtml",
+              "RelativeDocumentMoniker": "CiberAgentes\\Views\\Account\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\Views\\Account\\Index.cshtml",
+              "RelativeToolTip": "CiberAgentes\\Views\\Account\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAK8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-16T15:30:11.132Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "CiberAgentes\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "CiberAgentes\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAQwGkAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-16T15:29:22.197Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "CiberAgentes\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "CiberAgentes\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAAOUAAAAAAAAAAAAswCMBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-05-16T15:29:04.37Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "_LoginPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeDocumentMoniker": "CiberAgentes\\Views\\Shared\\_LoginPartial.cshtml",
+              "ToolTip": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeToolTip": "CiberAgentes\\Views\\Shared\\_LoginPartial.cshtml",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAACwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-16T15:28:53.101Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "CiberAgentes\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "CiberAgentes\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAAwFwAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-16T15:28:07.897Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\Program.cs",
+              "RelativeDocumentMoniker": "CiberAgentes\\Program.cs",
+              "ToolTip": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\Program.cs",
+              "RelativeToolTip": "CiberAgentes\\Program.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T07:29:06.698Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "MissionDetailViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\ViewModels\\Mission\\MissionDetailViewModel.cs",
+              "RelativeDocumentMoniker": "CiberAgentes\\ViewModels\\Mission\\MissionDetailViewModel.cs",
+              "ToolTip": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\ViewModels\\Mission\\MissionDetailViewModel.cs",
+              "RelativeToolTip": "CiberAgentes\\ViewModels\\Mission\\MissionDetailViewModel.cs",
+              "ViewState": "AgIAAIcAAAAAAAAAAAAUwJwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T07:24:58.854Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MissionsController.cs",
+              "DocumentMoniker": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\Controllers\\MissionsController.cs",
+              "RelativeDocumentMoniker": "CiberAgentes\\Controllers\\MissionsController.cs",
+              "ToolTip": "C:\\Users\\Juanan\\Desktop\\ProyectoInterfaces\\CiberAgentes\\CiberAgentes\\Controllers\\MissionsController.cs",
+              "RelativeToolTip": "CiberAgentes\\Controllers\\MissionsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T07:24:11.533Z"
             }
           ]
         }
